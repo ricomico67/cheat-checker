@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<TITLE>Cheat Checker</TITLE>
+<HTA:APPLICATION ID="oHTA" BORDER="none" BORDERSTYLE="normal" CAPTION="no" SHOWINTASKBAR="yes" SINGLEINSTANCE="yes" SYSMENU="yes" SCROLL="no"/>
+<STYLE>
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #000000; color: #ffffff; padding: 25px; overflow: hidden; margin: 0; border: 2px solid #333333; }
+    h2 { color: #ffffff; border-bottom: 2px solid #444; padding-bottom: 10px; margin-top: 0; font-weight: bold; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; }
+    #progress-container { width: 100%; background-color: #1a1a1a; border: 1px solid #555; height: 25px; margin: 15px 0; position: relative; border-radius: 4px; overflow: hidden; }
+    #progress-bar { width: 0%; height: 100%; background-color: #ffffff; }
+    #log { height: 110px; overflow: hidden; background: #0b0b0b; color: #ffffff; padding: 15px; font-family: monospace; font-size: 14px; font-weight: bold; border: 1px solid #333; border-radius: 6px; display: flex; align-items: center; justify-content: center; text-align: center; }
+</STYLE>
+<SCRIPT LANGUAGE="JavaScript">
+    window.resizeTo(620, 350);
+    window.moveTo((window.screen.width - 620) / 2, (window.screen.height - 350) / 2);
+
+    var cheats = ["cabaletta", "Jigsaw", "LiquidBounce", "Wurst", "GishCode", "Inertia", "Impact", "rename_me_please.dll", "Future", "RusherHack", "Pyro", "Zamorozka", "Konas", "WintWare", "Nursultan", "Norules", "Akrien", "Sigma", "DeadCode", "Eternity", "WEXSIDE", "Rich", "RichPremium", "EdItMe.dll", "mc100.dll", "Matix", "R3D", "Celestial", "Wild", "Destroy", "ArchWare", "NightMare", "BoberWare", "Minced", "Hitbox", "FLauncher", "ATMOSPHERE", "KillAura", "Killaura", "killaura", "Esp", "Wolfram", "Huzuni", "WURST", "Legit", "PYRO", "FLUX", "Aristois", "NeverHook", "ShitClient", "Zeus", "Exloader", "meteor", "meteor-client", "BleachHack", "Bleach", "baritone", "crystal-optimizer", "clickcrystals", "thunderhack", "Cleancut", "Player-Highlighter", "Auto-Attack", "QUICK-CLIENT", "QUICK", "Prestige", "doomsday", "Hotbar-Switcher", "Virgin", "MOON-PROJECT", "MOON", "expensive", "catlavan", "rogalik", "rogalik-client", "carbonara-client", "carbonara", "viafabric", "viaforge", "venose", "arbuz", "arbuz-client", "venus", "venusfree", "verist", "veristclient", "Blessed", "avalone", "delta", "deltaclient", "deltalauncher", "Excellent", "Excellentclient", "RelakeClient", "Relake", "Haruka", "Dimasikclient", "everlastclient", "ShitPast", "Valhalla", "catlavanclient", "Nuclear", "Solar", "Koshka", "Private", "Arcade", "QuickClient"];
+    
+    var progress = 0;
+    var interval = setInterval(function() {
+        progress++;
+        document.getElementById("progress-bar").style.width = progress + "%";
+        document.getElementById("status-text").innerText = "Scanning system memory... " + progress + "%";
+        
+        if (cheats.length > 0) {
+            var cheat = cheats.shift();
+            document.getElementById("log").innerText = "CHECKING: " + cheat + " [Not detected]";
+        }
+        
+        if (progress >= 100) {
+            clearInterval(interval);
+            document.getElementById("status-text").innerText = "Status: Secured";
+            document.getElementById("progress-container").style.backgroundColor = "#00cc00";
+            document.getElementById("progress-bar").style.width = "100%";
+            document.getElementById("progress-bar").style.backgroundColor = "#00cc00";
+            document.getElementById("log").innerText = "SYSTEM CLEAN - NO CHEATS FOUND";
+            
+            setTimeout(function() {
+                window.close();
+            }, 10000);
+        }
+    }, 1200);
+</SCRIPT>
+</HEAD>
+<BODY>
+    <h2>Cheat Checker v4.8</h2>
+    <div id="status-text" style="font-size: 13px; font-weight: bold; margin-bottom: 5px;">Initializing system... 0%</div>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+    <div id="log">Initializing deep memory scan...</div>
+</BODY>
+</HTML>
